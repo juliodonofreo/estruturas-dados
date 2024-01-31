@@ -1,12 +1,9 @@
 package pilha;
-
 import listaEncadeada.ListaEncadeada;
 
 import java.util.EmptyStackException;
-import java.util.Objects;
-import java.util.SimpleTimeZone;
 
-public class Pilha<T extends Comparable<T>>{
+public class Pilha<T extends Comparable<T>> implements Comparable<Pilha<T>>{
     protected ListaEncadeada<T> lista;
     private int tamanho;
     private T topo;
@@ -63,5 +60,11 @@ public class Pilha<T extends Comparable<T>>{
     @Override
     public String toString() {
         return lista.toString();
+    }
+
+    @Override
+    public int compareTo(Pilha o) {
+        return Integer.compare(getTamanho(), o.getTamanho());
+
     }
 }

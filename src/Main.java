@@ -3,22 +3,15 @@ import pilha.Pilha;
 
 public class Main {
     public static void main(String[] args) {
-        Pilha<String> pilha = new Pilha<>("Julio");
 
-        pilha.adicionar("Carla");
-        pilha.adicionar("Vitor");
-        pilha.adicionar("João");
+        ListaEncadeada<Pilha<Integer>> lista = new ListaEncadeada<>(new Pilha<>(1));
 
-        System.out.println(pilha);
-        System.out.println(pilha.getTopo());
-        System.out.println(pilha.getTamanho());
+        lista.get(0).adicionar(2);
+        lista.get(0).adicionar(3);
 
-        System.out.println();
-
-        pilha.desempilhar();
-        System.out.println(pilha);
-        System.out.println(pilha.getTopo());
-        System.out.println(pilha.getTamanho());
-        System.out.println(pilha.vazia());
+        lista.adicionarNoFinal(new Pilha<>(4));
+        lista.get(1).adicionar(5);
+        lista.get(1).adicionar(6);
+        System.out.println(lista);
     }
 }

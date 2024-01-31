@@ -1,8 +1,9 @@
 package listaEncadeada;
 
+import java.util.Iterator;
 import java.util.Objects;
 
-public class ListaEncadeada<T extends Comparable<T>> {
+public class ListaEncadeada<T extends Comparable<T>> implements Iterable<T>{
 
     private No<T> primeiro;
 
@@ -200,5 +201,10 @@ public class ListaEncadeada<T extends Comparable<T>> {
     @Override
     public int hashCode() {
         return Objects.hash(getPrimeiro());
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ListaEncadeadaIterator<T>(this.primeiro);
     }
 }
