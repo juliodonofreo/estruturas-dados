@@ -1,39 +1,24 @@
 import listaEncadeada.ListaEncadeada;
+import pilha.Pilha;
 
 public class Main {
     public static void main(String[] args) {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<>();
-        System.out.println(lista);
+        Pilha<String> pilha = new Pilha<>("Julio");
 
-        lista.adicionarNoFinal(1);
-        System.out.println(lista);
-        lista.deletarPrimeiro();
-        System.out.println(lista);
-        lista.adicionarNoFinal(2);
-        lista.adicionarNoFinal(3);
-        lista.adicionarNoFinal(4);
-        System.out.println(lista);
+        pilha.adicionar("Carla");
+        pilha.adicionar("Vitor");
+        pilha.adicionar("João");
 
-        if(lista.buscar(2)){
-            System.out.println("Valor existe na lista");
-        }
-        else{
-            System.out.println("Valor não existe na lista");
-        }
+        System.out.println(pilha);
+        System.out.println(pilha.getTopo());
+        System.out.println(pilha.getTamanho());
 
-        lista.adicionarNoFinal(5);
-        System.out.println(lista);
-        System.out.println(lista.getTamanho());
-        System.out.println(lista.get(2));
-        System.out.println(lista.getUltimo());
-        lista.deletar(2);
-        System.out.println(lista);
-        lista.adicionarNoComeco(100);
-        lista.adicionarNoComeco(99);
-        System.out.println(lista);
-        lista.adicionar(3, 255);
-        System.out.println(lista);
-        lista.ordenar();
-        System.out.println(lista);
+        System.out.println();
+
+        pilha.desempilhar();
+        System.out.println(pilha);
+        System.out.println(pilha.getTopo());
+        System.out.println(pilha.getTamanho());
+        System.out.println(pilha.vazia());
     }
 }
