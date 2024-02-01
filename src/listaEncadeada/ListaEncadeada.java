@@ -12,11 +12,13 @@ public class ListaEncadeada<T extends Comparable<T>> implements Iterable<T>{
     }
 
     public ListaEncadeada(T valor){
+        if (valor == null) throw new IllegalArgumentException("O valor não pode ser nulo.");
+
         this.primeiro = new No<T>(valor);
     }
 
-    public No<T> getPrimeiro(){
-        return this.primeiro;
+    public T getPrimeiro(){
+        return this.primeiro.getValor();
     }
 
     public void setPrimeiro(No<T> primeiro) {
@@ -133,12 +135,16 @@ public class ListaEncadeada<T extends Comparable<T>> implements Iterable<T>{
     }
 
     public void adicionarNoComeco(T valor){
+        if (valor == null) throw new IllegalArgumentException("O valor não pode ser nulo.");
+
         No<T> primeiroAntigo = this.primeiro;
         this.primeiro = new No<>(valor);
         this.primeiro.setProximo(primeiroAntigo);
     }
 
     public void adicionar(int index, T valor){
+        if (valor == null) throw new IllegalArgumentException("O valor não pode ser nulo.");
+
         if (index < 0) throw new IndexOutOfBoundsException("O índice não pode ser negativo. ");
         if(index >= getTamanho()) throw new IndexOutOfBoundsException("Indice grande demais. ");
 
