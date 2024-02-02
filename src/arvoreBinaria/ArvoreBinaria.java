@@ -36,6 +36,7 @@ public class ArvoreBinaria<T extends Comparable<T>> {
 
 
     public void adicionar(T valor){
+        if(this.buscar(valor) != null) return;
         if (valor == null) throw new NullPointerException("O valor a se adicionar não pode ser nulo");
         adicionar(raiz, valor);
     }

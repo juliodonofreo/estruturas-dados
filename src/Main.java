@@ -8,6 +8,7 @@ public class Main {
         ArvoreBinaria<Integer> arvoreBinaria = new ArvoreBinaria<Integer>(100);
         arvoreBinaria.adicionar(200);
         arvoreBinaria.adicionar(90);
+        arvoreBinaria.adicionar(95);
         arvoreBinaria.adicionar(94);
         arvoreBinaria.adicionar(150);
         arvoreBinaria.adicionar(95);
