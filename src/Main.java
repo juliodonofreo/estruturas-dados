@@ -40,10 +40,10 @@ public class Main {
         ArvoreBinaria<Integer> arvoreBalanceada = new ArvoreBinaria<>();
         ListaEncadeada<Integer> lista = arvoreBinaria.paraLista();
         int tamanho = lista.getTamanho();
-        No<Integer> no = arvoreBalanceada.listaParaArvoreBalanceada(lista, 0, tamanho - 1);
-        arvoreBalanceada.setRaiz(no);
-        System.out.println(no);
+        arvoreBalanceada.listaParaArvoreBalanceada(lista);
+
         System.out.println(arvoreBalanceada);
         arvoreBalanceada.preOrdem();
+        System.out.println(arvoreBalanceada.profundidade());
     }
 }

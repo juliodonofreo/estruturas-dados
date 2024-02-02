@@ -20,8 +20,12 @@ public class ArvoreBinaria<T extends Comparable<T>> {
         this.raiz = raiz;
     }
 
+    public void listaParaArvoreBalanceada(ListaEncadeada<T> lista){
+        raiz = listaParaArvoreBalanceada(lista, 0, lista.getTamanho() - 1);
+    }
 
-    public No<T> listaParaArvoreBalanceada(ListaEncadeada<T> lista, int comeco, int fim){
+
+    private No<T> listaParaArvoreBalanceada(ListaEncadeada<T> lista, int comeco, int fim){
 
         if (comeco > fim) {
             return null;
