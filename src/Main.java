@@ -1,5 +1,6 @@
 import arvoreBinaria.ArvoreBinaria;
 import arvoreBinaria.No;
+import listaEncadeada.ListaEncadeada;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,7 +8,6 @@ public class Main {
         ArvoreBinaria<Integer> arvoreBinaria = new ArvoreBinaria<Integer>(100);
         arvoreBinaria.adicionar(200);
         arvoreBinaria.adicionar(90);
-        arvoreBinaria.adicionar(95);
         arvoreBinaria.adicionar(94);
         arvoreBinaria.adicionar(150);
         arvoreBinaria.adicionar(95);
@@ -35,6 +35,14 @@ public class Main {
             System.out.println("\nNó encontrado: " + num);
         }
 
-        System.out.println(arvoreBinaria.tamanho());
+
+        ArvoreBinaria<Integer> arvoreBalanceada = new ArvoreBinaria<>();
+        ListaEncadeada<Integer> lista = arvoreBinaria.paraLista();
+        int tamanho = lista.getTamanho();
+        No<Integer> no = arvoreBalanceada.listaParaArvoreBalanceada(lista, 0, tamanho - 1);
+        arvoreBalanceada.setRaiz(no);
+        System.out.println(no);
+        System.out.println(arvoreBalanceada);
+        arvoreBalanceada.preOrdem();
     }
 }

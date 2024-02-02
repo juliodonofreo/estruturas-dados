@@ -1,8 +1,12 @@
 package arvoreBinaria;
 
+import listaEncadeada.ListaEncadeada;
+
 public class ArvoreBinaria<T extends Comparable<T>> {
 
     private No<T> raiz;
+
+    public ArvoreBinaria(){}
 
     public ArvoreBinaria(T valor){
         this.raiz = new No<>(valor);
@@ -15,6 +19,21 @@ public class ArvoreBinaria<T extends Comparable<T>> {
     public void setRaiz(No<T> raiz) {
         this.raiz = raiz;
     }
+
+
+    public No<T> listaParaArvoreBalanceada(ListaEncadeada<T> lista, int comeco, int fim){
+
+        if (comeco > fim) {
+            return null;
+        }
+
+        int metade = (fim + comeco) / 2;
+        No<T> no = new No<>(lista.get(metade));
+        no.setEsquerda(listaParaArvoreBalanceada(lista, comeco, metade - 1));
+        no.setDireita(listaParaArvoreBalanceada(lista, metade + 1, fim));
+        return no;
+    }
+
 
     public void adicionar(T valor){
         if (valor == null) throw new NullPointerException("O valor a se adicionar não pode ser nulo");
@@ -201,6 +220,22 @@ public class ArvoreBinaria<T extends Comparable<T>> {
         else {
             return 1 + profundidade_direita;
         }
+    }
+
+    public ListaEncadeada<T> paraLista(){
+        return paraLista(raiz, new ListaEncadeada<T>());
+    }
+
+    private ListaEncadeada<T> paraLista(No<T> atual ,ListaEncadeada<T> lista){
+        if(atual == null){
+            return lista;
+        }
+
+        lista = paraLista(atual.getEsquerda(), lista);
+        lista.adicionarNoFinal(atual.getValor());
+        lista = paraLista(atual.getDireita(), lista);
+
+        return lista;
     }
 
     public int tamanho(){
